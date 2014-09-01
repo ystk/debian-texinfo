@@ -3,16 +3,16 @@ Section: doc
 Priority: standard
 Maintainer: Debian TeX maintainers <debian-tex-maint@lists.debian.org>
 Uploaders: Norbert Preining <preining@debian.org>, Frank Küster <frank@debian.org>
-Build-Depends: debhelper (>= 5), quilt, libncurses5-dev | libncurses-dev, gettext
-Standards-Version: 3.9.3
-Vcs-Svn: svn://svn.debian.org/svn/debian-tex/texinfo/trunk
-Vcs-Browser: http://svn.debian.org/wsvn/debian-tex/texinfo/trunk/
+Build-Depends: debhelper (>= 7.0.50~), libncurses5-dev | libncurses-dev, gettext, libtext-unidecode-perl, libintl-perl, help2man, autotools-dev
+Standards-Version: 3.9.5
+Vcs-Git: git://anonscm.debian.org/debian-tex/texinfo.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=debian-tex/texinfo.git
 
 Package: texinfo
 Section: text
-Priority: standard
+Priority: optional
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, libtext-unidecode-perl, libintl-perl, libxml-libxml-perl
 Suggests: texlive-base, texlive-latex-base, texlive-generic-recommended, texinfo-doc-nonfree
 Breaks: tetex-bin (<< 3.0), tetex-base (<< 3.0), ja-trans (<= 0.7-3.1)
 Replaces: tetex-base (<< 1.0.2+20000804-9), tetex-bin (<< 3.0)
@@ -47,6 +47,7 @@ Package: install-info
 Section: doc
 Priority: important
 Architecture: any
+Pre-Depends: dpkg (>= 1.16.1)
 Replaces: texinfo (<< 4.13a.dfsg.1-2)
 Breaks: texinfo (<< 4.13a.dfsg.1-2)
 Depends: ${shlibs:Depends}, ${misc:Depends}
